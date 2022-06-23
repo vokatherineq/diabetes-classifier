@@ -5,200 +5,268 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Predicting GDP per capita for countries using several factors</title>
-        <link rel="icon" type="image/x-icon" href="{{url_for('static', filename='assets/favicon.ico')}}" />
+        <title>Diabetes Classification Model - Start Bootstrap Template</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="static/assets/favicon.ico"/>
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="{{url_for('static', filename='css/styles.css')}}" rel="stylesheet" />
+        <link href="static/css/styles.css" rel="stylesheet" />
     </head>
-    <body id="page-top">
-        <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <body>
+        <!-- Responsive navbar-->
+         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
             <div class="container px-4">
-                <a class="navbar-brand" href="#page-top">Country GDP predictor</a>
+                <a class="navbar-brand" href="#page-top">Diabetes Classifier</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#services">Exploration</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#contact">Machine learning</a></li>
-                        <li class="nav-item"><a class = "nav-link" href="#Conclusion">Conclusion</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#project">Project Overview</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#EDA">EDA</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#ML">Machine Learning</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#Conclusion">Conclusion</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#Team">Team</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
-        <!-- Header-->
-        <header class="bg-primary bg-gradient text-white">
-            <div class="container px-4 text-center">
-                <h1 class="fw-bolder">Predicting GDP per capita for countries using several factors</h1>
-                <p class="lead">A data science project by AI Camp students</p>
-                <a class="btn btn-lg btn-light" href="#about">See our work below</a>
-            </div>
-        </header>
-        <!-- About section-->
-        <section id="about">
-            <div class="container px-4">
-                <div class="row gx-4 justify-content-center">
-                    <div class="col-lg-8">
-                        <h2>What does the project do?
-                        </h2>
-                        <p class="lead">In our dataset, there is information on population height, literacy, infant mortality, etc... that correlate with each other in interesting ways. Our goal will be to predict the wealth of nations, which will be measured in GDP per capita. Looking at same characteristics of the dataset, the GDP per capita ranges from $500 to $55,100 and has a standard deviation of $9834</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Services section-->
-        <section class="bg-light" id="services">
-            <div class="container px-4">
-                <div class="row gx-4 justify-content-center">
-                    <div class="col-lg-8">
-                    <h1 id="top-level-heading">Exploration</h1><br/>
-                    </div>
-                    <div class="col-lg-8">
-                        <h3>Exploration of data: Correlation table heatmap</h3>
-                        <p class="lead">First, we created a correlation table to see how different features correlated with the wealth of nations. Some surprising results were that the number of phones per hundred people and male height in cm were highly correlated with GDP per capita. Meanwhile, birthrate and infant mortality were highly negatively correlated</p>
-                    <iframe width="900" height="900" title="Correlation Table of Features" src="{{url_for('static', filename='all_correlation_map.html')}}"></iframe> <br>
-                    </div>
-                    <div class="col-lg-8">
-                        <h3>Exploration of data: Scatterplots</h3>
-                        <p class="lead">Scatterplots clearly demonstrate to us more positive and negative trends in our data. Most surprising to us is that as agricultural goes to zero, GDP becomes exponentially higher.</p>
-                        <iframe width="700" height="700" title="Scatterplots of features in relation to GDP" src="{{url_for('static', filename='GDP scatterplots.html')}}"></iframe> <br><br>
-                    </div>
-                    <div class="col-lg-8">
-                        <h3>Visualization of crucial features</h3>
-                        <p class="lead">We isolated the above features that we saw as most important and turned them into their own correlation table, so that we can see how these crucial features affect wealth.</p>
-                        <iframe width="800" height="800" title="Crucial Features Hetmap" src="{{url_for('static', filename='crucial_features_heatmap.html')}}"></iframe>  
-                        <br>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Contact section-->
-        <section id="contact">
-            <div class="container px-4">
-                <div class="row gx-4 justify-content-center">
-                    <div class="col-lg-8">
-                        <h1>Machine Learning</h1></br>
-                    </div>
-                    <div class="col-lg-8">
-                        <h2>Linear Regression: Explanation</h2>
-                        <p class="lead">First, we want to try a baseline linear regression. Linear regression assumes that all features are have a linear relation with GDP per capita, and we can fit a line of best fit to predict future values</p>
-                        <img src="{{url_for('static', filename='images/LinearExplanation.png')}}" class="page-image" />
-                    </div>
-
-                    <div class="col-lg-8">
-                        <h2>Linear Regression: Results</h2>
-                        <p class="lead">Here we have a confusion matrix with the results of the linear regression applied on our testing dataset. A confusion matrix for a classification problem tells us the number of correct and incorrect predictions for every class (for example wealthy). For example, the model may have classified 10 countries with average GDP as average and classified 2 countries with average GDP incorrectly, shown in the below confusion matrix. Linear regression performed exceptionally well on countries with average GDP.</p>
-                        <iframe width="500" height="500" title="Linear Regression Confusion Matrix" src="{{url_for('static', filename='LinearRegressionCF.html')}}"></iframe>  
-                        <p class="lead">By calculating the total correct examples over all examples classified, we get an average accuracy of around 58%. Mean absolute error, or the average difference between predicted and actual GDP per capita, was $3299</p>
-                    </div>
-                    <div class="col-lg-8">
-                        <h2>Neural Networks: Explanation</h2>
-                        <p class="lead">Neural networks are one of the most powerful machine learning approaches for data with complicated patterns, but are more prone to overfitting to simple data.</p>
-                        <img src="{{url_for('static', filename='images/nn_explanation.png')}}" class="page-image" width="500"/>
-                    </div>
-
-                    <div class="col-lg-8">
-                        <h2>Neutral Networks: Results</h2>
-                        <p class="lead">Looking at the confusion matrix below, the neural network performed much better on wealthy and very wealthy nations.</p>
-                        <iframe width="500" height="500" title="Neural Network Confusion Matrix" src="{{url_for('static', filename='NeuralNetworkCF_matrix.html')}}"></iframe>
-                        <p class="lead">For total accuracy, the NN performed at 64.4% accuracy in classification. Mean absolute error is $2311</p>
-                    </div>
-                    <div class="col-lg-8">
-                        <h2>K Nearest Neighbors: Explanation</h2>
-                        <p class="lead">K Nearest Neighbors looks at data points in the testing set and infers the classification based on similarity to other points of the same class in the training set.</p>
-                        <img src="{{url_for('static', filename='images/knn_explanation.jpeg')}}" class="page-image" width="500"/>
-                    </div>
-                    <div class="col-lg-8">
-                        <h2>K Nearest Neighbors: Results</h2>
-                        <p class="lead">Looking at our confusion matrix below, K Nearest Neighbors performed well on very wealthy and ver poor nations.</p>
-                        <iframe width="500" height="500" title="KNN Confusion Matrix" src="{{url_for('static', filename='KNN_CF_matrix.html')}}"></iframe>  
-                        <p class="lead">For total accuracy, the NN performed at 64.4% accuracy in classification. Mean absolute error is $2311</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="bg-light" id="Conclusion">
-            <div class="container px-4">
-                <div class="row gx-4 justify-content-center">
-                    <div class="col-lg-8">
-                    <h1 id="top-level-heading">Conclusion</h1><br/>
-                    </div>
-                    <div class="col-lg-8">
-
-                        <p class="lead">In conclusion, neural networks clearly performed the best on our dataset for predicting GDP per capita. Positively correlated features like height and phone usage along with negatively correlated features like birthrate and agriculture helped us achieve these results. </p>
-
-                        <h3>So what?</h3>
-                            
-                        <p class="lead">So what is the significance of our project? Because we know which features are most correlated with a higher GDP country, we can identify both the factors that lead to countries with higher monetary value and also predict and then invest in countries with a high likelihood of future growth. </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section style="margin-left: 80px; margin-right: 80px;" id="team">
-        <header class="bg-primary text-center py-5 mb-4">
-            <div class="container px-4">
-              <h1 class="fw-light text-white">Meet the Extraordinary AI Camp Team</h1>
-            </div>
-          </header>
-          
-          <!-- Page Content -->
-          <div class="container px-4">
-            <div class="row">
-              <!-- Team Member 1 -->
-              <div class="col-xl-3 col-md-6 mb-4">
-                <div class="card border-0 shadow">
-                  <img src="{{url_for('static', filename='images/rohan_img.png')}}" class="card-img-top" alt="...">
-                  <div class="card-body text-center">
-                    <h5 class="card-title mb-0">Rohan Joshi</h5>
-                    <div class="card-text text-black-50">Web Developer</div>
-                  </div>
-                </div>
-              </div>
-              <!-- Team Member 2 -->
-              <div class="col-xl-3 col-md-6 mb-4">
-                <div class="card border-0 shadow">
-                  <img src="{{url_for('static', filename='images/alex_duffy_img.png')}}" height="330" class="card-img-top" alt="...">
-                  <div class="card-body text-center">
-                    <h5 class="card-title mb-0">Alex Duffy</h5>
-                    <div class="card-text text-black-50">Instructor</div>
-                  </div>
-                </div>
-              </div>
-              <!-- Team Member 3 -->
-              <div class="col-xl-3 col-md-6 mb-4">
-                <div class="card border-0 shadow">
-                  <img src="{{url_for('static', filename='images/mitchell_img.png')}}" height="350" class="card-img-top" alt="...">
-                  <div class="card-body text-center">
-                    <h5 class="card-title mb-0">Mitchell Cutts</h5>
-                    <div class="card-text text-black-50">Instructor</div>
-                  </div>
-                </div>
-              </div>
-              <!-- Team Member 4 -->
-              <div class="col-xl-3 col-md-6 mb-4">
-                <div class="card border-0 shadow">
-                  <img src="{{url_for('static', filename='images/cameron_jackson_img.jfif')}}" height="250" class="card-img-top" alt="...">
-                  <div class="card-body text-center">
-                    <h5 class="card-title mb-0">Cameron Jackson</h5>
-                    <div class="card-text text-black-50">Data Scientist</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- /.row -->
-          
+        <!-- Header - set the background image for the header in the line below-->
+        <header class="py-5 bg-image-full" style="background-image: url('https://images.ctfassets.net/x0s5vw77vftn/ew_wysiwyg_fid4845_asset/7ec294fc1fac3439422586e124a12152/InsulinDeliveryDevices_51876725_M.jpg')">
+            <div class="text-center my-5">
+                <h1 class="text-black fs-3 fw-bolder">Diabetes - Creating a Model for the Future</h1>
+              <br>
+              <br>
+              <p class="text-black mb-0"><strong>Created by - Parallel Processing Team</strong></p>
           </div>
+          </header>
+
+        <!-- INTRODUCTION section-->
+        <section id = 'project'>
+            <div class="container my-5">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <div style='text-align:center'><h2 style = "font-size:50px;">What does the project do?</h2></div>
+                        <p class="lead">Our goal for this project is to be able to create a model that can identify whether or not a person has diabetes. By using a data set that includes several health levels such as: Glucose, Insulin, and Age, our team is able to train our model to identify the symptom levels of diabetes. </p>
+                    </div>
+                </div>
+            </div>
         </section>
-        <!-- Footer-->
+      
+      <!-- EDA section-->
+        <section id = 'EDA'>
+            <div class="container my-5">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <h2 style = "font-size:50px;">Exploration of data: Heatmap</h2>
+                        <p class="lead">A heatmap's main purpose is to display the correlation between features in a data set. If you look below you can see all the features: Glucose, BMI, etc. and their correlation to the outcome.</p>
+                      
+                        <iframe src = 'static/heatmap.html' width =   800 height = 800 ></iframe>
+                        <div style='text-align:center'>
+                      </div>
+                      <p class = 'lead'>
+                        Glucose and BMI were the two most correlated factors to whether or not a person has diabetes. </p>
+                      <hr/>
+                      <h2 style = 'font-size:50px;'>
+                        Exploration of Data: Boxplots
+                      </h2>
+                      <p class = 'lead'>
+                       The boxplots below can be used to sift through all the data and any points outside of the range will be determined as faulty data with the exception of age. The rectangle in the range represents a broad average and the line inside of the rectangle represents the true average.
+                      </p>
+                      <iframe src = 'static/boxplot.html' width = 800 height = 800 ></iframe>
+                      <p class = 'lead'>
+                      <p> The boxplots were one of the most useful models we made, because it helped us find outliers. once we found the outliers, we dropped those values from our dataset which resulted in the accuracy of our model increasing.
+                      </p>
+                      <hr/>
+                      <h2 style = 'font-size:50px;'>
+                      Exploration of Data: Scatterplots
+                      </h2>
+                      <p class="lead">Scatter plots mainly show the correlation between 2 variables in a data set, in this case we are showing the correlation count between the 'Outcome', and a specific health value (x, y). This is evident in the second scatter plot, we were able to see that people with a high glucose level usually also had diabetes. 
+                      <iframe src = 'static/scatterplot.html' width = 800 height = 800 ></iframe>
+                      <p class = 'lead'>Some of the x variables had a positive correlation such as blood pressure, thick skin, and insulin. Because of this, we want to include this in order model to see if it can help predict the chance of diabetes.
+                      </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Image element - set the background image for the header in the line below-->
+        <div class="py-5 bg-image-full" style="background-image: url('https://connect.ignatiuz.com/hs-fs/hubfs/AI%20and%20Deep%20Learning.gif?width=1000&name=AI%20and%20Deep%20Learning.gif')">
+            <!-- Put anything you want here! The spacer below with inline CSS is just for demo purposes!-->
+            <div style="height: 20rem"></div>
+        </div>
+
+       <!-- ML section-->
+        <section id = 'ML'>
+            <div class="container my-5">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <div style='text-align:center'><h1 style = "font-size:75px;">Machine Learning Models </h1></div>
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+                        <div style='text-align:center'><h2 style = "font-size:60px;">Logistic Regression</h2></div>
+                        <p class="lead"> </p>
+                      <div style='text-align:center'>
+                        <img src = https://miro.medium.com/max/932/1*bCCcQhMjHGaI89i-7i3xFw.png height = 400 width = 500>
+                        <p class="lead">Logistic Regression is used when predicting an outcome based on a fixed variable such as determining possible risk of disease using health factors like Glucose level and BMI (Body Mass Index). Before predicting an outcome, filtering through data is usually the best course of action because it allows faulty data to be discarded such as if the data set displays someone’s  blood pressure as 0 or 400. </p>
+                       <p class = 'lead'> <b>Logistic Regression accuracy</b> - 84.6 % </p>
+                        <p >
+                         <b>Confusion Matrix for Logistic Regression</b>
+                        </p>
+                        <img src = 'static/cf.png' width = 500 height = 500>
+                      </div>
+                      <hr/>
+                      <div style='text-align:center'><h2 style = "font-size: 60px;">K-nearest neighbors</h2></div>                        <p class="lead"> </p>
+                        <p class="lead"> </p>
+                      <div style='text-align:center'>
+                       <img src = https://static.javatpoint.com/tutorial/machine-learning/images/k-nearest-neighbor-algorithm-for-machine-learning3.png>
+                        <p class = 'lead'> KNN takes a data point and find the k nearest points to that data point.
+If k=5, KNN find the 5 nearest neighbors and chooses the class of neighbor that has the majority. 
+This is why k should not be an even number because there is a possibility of a tie. In this data set I tested many different k values and found that k=47 gave the best accuracy.
+</p>  <p class = 'lead'><b>K-nearest neighbors accuracy</b> - 85.9 % </p>
+                        <p >
+                         <b>Confusion Matrix for k-Nearest Neighbors</b>
+                        </p>
+                        <img src='static/image_2022-06-23_101701744.png'>
+                      </div>
+                      <hr/>
+                        <div style='text-align:center'><h2 style = "font-size: 60px;">Random Forests</h2></div> 
+                      <div style='text-align:center'><img src = 'static/random forest.png' ></div>
+                      </div>
+                      <div style='text-align:center'><p class = 'lead'> Random forest works by constructing a “forest” of decision trees and outputting the average result from the trees to categorize data. To increase the accuracy of the method, we can go through the data set and take out outliers and only apply the most relevant data points.
+       </p>   
+    <p class = 'lead'><b>Random Forest accuracy</b> - 80.7 % </p>
+                        <p >
+                         <b>Confusion Matrix for Random Forests</b>
+                        </p>
+                        <img src = 'static/cm-rf.png' width = 700 height = 500>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Image element - set the background image for the header in the line below-->
+        <div class="py-5 bg-image-full" style="background-image: url('https://c.tenor.com/7kz9P1xyYeoAAAAM/hackers-scrolling.gif')">
+          <br>
+          <br>
+          <br>
+          <br>
+            <!-- Put anything you want here! The spacer below with inline CSS is just for demo purposes!-->
+            <div style="height: 20rem"></div>
+        </div>
+
+        <!-- CONCLUSION section-->
+        <section id="Conclusion">
+            <div class="container my-5">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <div style='text-align:center'><h2 style = "font-size:60px;">-Conclusion-</h2></div>
+                        <p class="lead"></p>
+                        <p class = 'lead'>Based on the results, our team has come to the conclusion that k-nearest neighbors has performed the best compared to  all the ML models. With cleaning the data and handling the outliers, all models were able to get to significantly high accuracy points: </p>
+                      <p class = 'lead'> <b>Logistic Regression accuracy</b> - 84.6 % </p>
+                      <p class = 'lead'><b>K-nearest neighbors accuracy</b> - 85.9 % </p>
+                      
+   <p class = 'lead'><b>Random Forest accuracy</b> - 80.7 % </p>
+<p class = 'lead'>Since our data set is not the most significant(big) and recent set, further research must be done in order to use this model in the real world. However with more recent research and data this model could be able to prevent people from experiencing harsh effects of untreated diabetes, along with helping people try and reverse it. If our model is able to point out diabetes early enough, then the individual has a chance of reversing their condition.
+
+  <!-- Team section-->
+  <div style='text-align:center'><h2 style = "font-size:60px;">-Meet the Team-</h2></div>
+            <div class="text-center my-5">
+              <h4>
+                Meet our team of incredible students who are all first time coders! Read more about them below!
+              </h4>
+              </div>
+        <section id="Team">
+            <div class="container my-5">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <p class="lead"></p>
+                      <p class = 'lead'></p>
+                <div style='text-align:center'>
+                   <img class="img-fluid rounded-circle mb-4" src="static/0 Cropped.jpg" alt="..." style="width:150px;height:150px;"/>
+                      </div>
+                      <div style='text-align:center'>
+                        <p class = 'lead'>
+                          <b>Harel Dious</b>
+                          <p> Hi I'm Harel! I like anime and spending time with friends!
+                        </p>
+                      </div>
+                      <hr/>
+                      <div style = 'text-align:center'>
+                              <img class="img-fluid rounded-circle mb-4" src="static/me2.png" alt="..." style="width:150px;height:150px;" />
+                               <p class = 'lead'>
+                    <b>Yifan Wang</b>
+                  </p>
+                  <p>
+                    i play video games !
+                  </p>
+                </div>
+                      <hr/>
+                  <div style='text-align:center'>
+                    
+                  <img class="img-fluid rounded-circle mb-4" src="https://media1.tenor.com/images/428380076b62702a4617d1822ac7e46d/tenor.gif?itemid=26026803" alt="..." style="width:150px;height:150px;" />
+                    <p class = 'lead'>
+                      <b>Rocco Benvenuti</b>
+                    </p>
+                    <p>
+                      This is my first time coding and I'm excited to see what coding will bring in the future!
+                    </p>
+                      </div>
+                      <hr/>
+                 <div style='text-align:center'>
+                <img class="img-fluid rounded-circle mb-4" src="static/IMG_1033.jpg" alt="..." style="width:150px;height:150px;" />
+                   <p class = 'lead'>
+                     <b> Hari Ramakrishnan </b>
+                   </p>
+                   <p>
+                     I like playing games and the guitar
+                   </p>
+                      </div>
+                      <hr/>
+                 <div style='text-align:center'>
+                   <img class="img-fluid rounded-circle mb-4" src="static/IMG-0181.jpg" alt="tatiana" style="width:150px;height:150px;"/>
+                  <p class = 'lead'>
+                    <b>Tatiana De La Cruz</b>
+                   </p>
+                   <p>
+                     Hello! I enjoy playing sports and my piano!
+                   </p>
+                   <hr/>
+                <img class="img-fluid rounded-circle mb-4" src="static/frog download.jpeg" style="width:150px;height:150px;" />
+                   <p class = 'lead'>
+                    <b>Landen Morton</b>
+                   </p>
+                   <p>
+                     no picture available, please enjoy this frog on a doorbell.
+                   </p>
+                   <p>
+                     I enjoy robotics and playing games.
+                   </p>
+                   <hr/>
+                   <img class="img-fluid rounded-circle mb-4" src="static/kat.jpg" style="width:150px;height:150px;" />
+                   <p class = 'lead'>
+                    <b>Katherine Vo</b> (Instructor)
+                   </p>
+                   <p>
+                     I enjoy making Spotify playlists and hanging out with my cool, smart, sensational, talented students. ૮˶ᵔ ᵕ ᵔ˶ა
+                   </p>
+                </div>
+              </div>
+                  <div style='text-align:center'>
+                  <h3>
+                    last but not least, check out our bangin parallel processing playlist!
+                  </h3>
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/6MHkZ8r7g26kNUHUccHWIV?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+            </div>
+              </div>
+        </div>
+        </section>
+                      
+       <!-- Footer-->
         <footer class="py-5 bg-dark">
-            <div class="container px-4"><p class="m-0 text-center text-white">Copyright &copy; AI Camp 2022</p></div>
+            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; parallel processing 2022</p></div>
         </footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
-        <script src="/static/js/scripts.js"></script>
+        <script src="js/scripts.js"></script>
     </body>
 </html>
-2>

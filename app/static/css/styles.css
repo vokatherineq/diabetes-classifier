@@ -1,8 +1,8 @@
 @charset "UTF-8";
 /*!
-* Start Bootstrap - Scrolling Nav v5.0.5 (https://startbootstrap.com/template/scrolling-nav)
+* Start Bootstrap - Full Width Pics v5.0.5 (https://startbootstrap.com/template/full-width-pics)
 * Copyright 2013-2022 Start Bootstrap
-* Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-scrolling-nav/blob/master/LICENSE)
+* Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-full-width-pics/blob/master/LICENSE)
 */
 /*!
  * Bootstrap v5.1.3 (https://getbootstrap.com/)
@@ -10,7 +10,6 @@
  * Copyright 2011-2021 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
-
 :root {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
@@ -302,10 +301,6 @@ svg {
   vertical-align: middle;
 }
 
-.page-image{
-  margin: 30; 
-}
-
 table {
   caption-side: bottom;
   border-collapse: collapse;
@@ -495,8 +490,6 @@ progress {
 .lead {
   font-size: 1.25rem;
   font-weight: 300;
-  margin-top: 20px;
-  margin-bottom: 20px;
 }
 
 .display-1 {
@@ -11293,16 +11286,9 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
-html {
-  scroll-padding-top: 3.5rem;
-}
-
-header {
-  padding-top: 9.5rem;
-  padding-bottom: 6rem;
-}
-
-section {
-  padding-top: 9rem;
-  padding-bottom: 9rem;
+.bg-image-full {
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center;
+  background-size: cover;
 }
